@@ -1,49 +1,21 @@
 #include<stdio.h>
 #include<stdlib.h>
+#include<string.h>
 int main()
 {
-    int arr[100];
-    char snake = 'S';
-    char ladder = 'L';
-    int cd = 100;
-    for (int i = 1; i <= 10; i++)
+    char username[20],password[20];
+    char ch = 0;
+    int i=0;
+    printf("Enter the username:");
+    scanf("%s",username);
+    printf("Enter the password:");
+    while((ch = getch()) != 13)
     {
-        if (i % 2 != 0)
-        {
-            for (int j = 0; j < 10; j++)
-            {
-                if (i == 3 && j == 4)
-                {
-                    printf("[ %c]\t", snake);
-                }
-                else
-                {
-                    printf("[%d]\t", cd);
-                }
-                cd--;
-            }
-        }
-        else
-        {
-            for (int k = cd - 9; k <= cd; k++)
-            {
-
-                if (k < 10)
-                {
-                    printf("[0%d]\t", k);
-                }
-                else if (i == 8 && k % 10 == 2)
-                {
-                    printf("[ %c]\t", ladder);
-                }
-                else
-                {
-                    printf("[%d]\t", k);
-                }
-            }
-            cd = cd - 10;
-        }
-        printf("\n");
+        printf("*");
+        password[i] = ch;
+        i++;
     }
-    return 0;
+    password[i] = '\0';
+    printf("\nThe Entered password is %s",password);
+    getch();
 }
